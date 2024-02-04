@@ -1,17 +1,18 @@
 import { useState } from 'react';
 
 function CarList() {
-  const [cars, setCar] = useState([]);
+  const [cars, setCars] = useState([]);
   const [carYear, setCarYear] = useState(new Date().getFullYear());
   const [carMake, setCarMake] = useState('');
   const [carModel, setCarModel] = useState('');
 
   function handleAddCar() {
     const newCar = { year: carYear, make: carMake, model: carModel };
+    setCars((c) => [...c, newCar]);
   }
-  function handleRemoveCar(idx) {
+  /*function handleRemoveCar(idx) {
     // setCarYear(event.target.value)
-  }
+  }*/
   function handleYearChange(e) {
     setCarYear(e.target.value);
   }
@@ -26,7 +27,13 @@ function CarList() {
   return (
     <div className="card container">
       <h2>List of Car Objects</h2>
-      <ul></ul>
+      <ul>
+        {cars.map((car, idx) => (
+          <li key={idx}>
+            {car.year} {car.make} {car.model}
+          </li>
+        ))}
+      </ul>
 
       <input type="number" value={carYear} onChange={handleYearChange} />
       <input type="text" value={carMake} onChange={handleMakeChange} />
