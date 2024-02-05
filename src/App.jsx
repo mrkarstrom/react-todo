@@ -1,13 +1,13 @@
 // import Intro from './Intro';
-//import Todo from './Todo';
-import CarList from './CarList';
+import Todo from './Todo';
+// import CarList from './CarList';
 import './App.css';
 
 function App() {
   return (
     <>
-      <CarList />
-      {/* <Todo /> */}
+      {/* <CarList /> */}
+      <Todo />
       {/* <Intro /> */}
     </>
   );
