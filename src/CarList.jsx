@@ -9,6 +9,9 @@ function CarList() {
   function handleAddCar() {
     const newCar = { year: carYear, make: carMake, model: carModel };
     setCars((c) => [...c, newCar]);
+    setCarYear(new Date().getFullYear());
+    setCarMake('');
+    setCarModel('');
   }
   /*function handleRemoveCar(idx) {
     // setCarYear(event.target.value)
