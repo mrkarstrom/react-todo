@@ -13,9 +13,9 @@ function CarList() {
     setCarMake('');
     setCarModel('');
   }
-  /*function handleRemoveCar(idx) {
-    // setCarYear(event.target.value)
-  }*/
+  function handleRemoveCar(idx) {
+    setCars((c) => c.filter((_, i) => i !== idx));
+  }
   function handleYearChange(e) {
     setCarYear(e.target.value);
   }
@@ -32,7 +32,7 @@ function CarList() {
       <h2>List of Car Objects</h2>
       <ul>
         {cars.map((car, idx) => (
-          <li key={idx}>
+          <li key={idx} onClick={() => handleRemoveCar(idx)}>
             {car.year} {car.make} {car.model}
           </li>
         ))}
