@@ -1,13 +1,16 @@
 import { useState } from 'react';
 
 function Todo() {
-  const [tasks, setTask] = useState(['test', 'test2', 'something else']);
+  const [tasks, setTasks] = useState(['test', 'test2', 'something else']);
   const [newTask, setNewTask] = useState('');
 
   function handleInputChange(e) {
     setNewTask(e.target.value);
   }
-  function addTask() {}
+  function addTask() {
+    setTasks((t) => [newTask, ...t]);
+    setNewTask('');
+  }
   function deleteTask(index) {}
   function moveTaskUp(index) {}
   function moveTaskDown(index) {}
