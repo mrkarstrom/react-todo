@@ -8,10 +8,15 @@ function Todo() {
     setNewTask(e.target.value);
   }
   function addTask() {
-    setTasks((t) => [newTask, ...t]);
-    setNewTask('');
+    if (newTask.trim() !== '') {
+      setTasks((t) => [newTask, ...t]);
+      setNewTask('');
+    }
   }
-  function deleteTask(index) {}
+  function deleteTask(index) {
+    const updatedTasks = tasks.filter((_, i) => i !== index);
+    setTasks(updatedTasks);
+  }
   function moveTaskUp(index) {}
   function moveTaskDown(index) {}
 
