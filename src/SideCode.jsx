@@ -5,8 +5,8 @@ function SideCode() {
   const [color, setColor] = useState('green');
 
   useEffect(() => {
-    document.title = `Count: ${count}`;
-  }, [count]);
+    document.title = `Count: ${count} ${color}`;
+  }, [count, color]);
 
   function addCount() {
     setCount((c) => c + 1);
